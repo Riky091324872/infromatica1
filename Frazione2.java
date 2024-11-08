@@ -1,15 +1,20 @@
-public class Frazione {
+public class Frazione2 {
     private int numeratore;
     private int denominatore;
 
-    public Frazione() {
+    public Frazione2() {
         numeratore = 0;
         denominatore = 1;
     }
 
     public void impostaFrazione(int num, int den) {
         numeratore = num;
-        denominatore = den;
+        if (den != 0) {
+            denominatore = den;
+        } else {
+            System.out.println("Errore: il denominatore non può essere zero.");
+            denominatore = 1; // Default to 1 to avoid zero denominator
+        }
     }
 
     public void semplifica() {
@@ -32,8 +37,7 @@ public class Frazione {
     }
 
     public static void main(String[] args) {
-        Frazione f = new Frazione();
-        f.stampaFrazione(); 
-
+        Frazione2 f = new Frazione2(); // Changed to Frazione2
+        f.stampaFrazione();
     }
 }

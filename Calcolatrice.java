@@ -1,4 +1,4 @@
-public class Frazione {
+public class Calcolatrice {
 
     public int sottrai(int a, int b) {
         return a - b;
@@ -17,10 +17,11 @@ public class Frazione {
     }
 
     public static void main(String[] args) {
+        Calcolatrice calc = new Calcolatrice(); 
 
-        System.out.println("Sottrazione (10 - 5): " + calc.sottrai(10, 5));        
-        System.out.println("Moltiplicazione (10 * 5): " + calc.moltiplica(10, 5)); 
-        System.out.println("Divisione (10 / 2): " + calc.dividi(10, 2));           
-        System.out.println("Divisione (10 / 0): " + calc.dividi(10, 0));           
+        System.out.println(calc.sottrai(10, 5));       
+        System.out.println(calc.moltiplica(10, 5));    
+        System.out.println(calc.dividi(10, 2));        
+        System.out.println(calc.dividi(10, 0));        
     }
 }
