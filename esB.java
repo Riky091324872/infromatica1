@@ -8,7 +8,7 @@ public class esB {
 
         int[] array = new int[10];
         for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(100) + 1;
+            array[i] = random.nextInt(2) + 1;
         }
 
         int posizioneSegreta = random.nextInt(array.length);
