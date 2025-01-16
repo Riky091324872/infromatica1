@@ -1,49 +1,43 @@
 public class ContoBancario {
-    private double saldo; // Attributo privato
 
-    // Costruttore
-    public ContoBancario(double saldoIniziale) {
-        if (saldoIniziale >= 0) {
-            saldo = saldoIniziale;
-        } else {
-            saldo = 0;
-            System.out.println("Errore: il saldo iniziale non può essere negativo. Impostato a 0.");
-        }
+    private int saldo; 
+
+    public ContoBancario(int saldoIniziale) {
+        saldo = saldoIniziale >= 0 ? saldoIniziale : 0; 
     }
 
-    // Metodo per visualizzare il saldo
-    public double getSaldo() {
+    public int getSaldo() {
         return saldo;
     }
 
-    // Metodo per depositare denaro
-    public void deposita(double importo) {
+    public void setSaldo(int nuovoSaldo) {
+        saldo = nuovoSaldo >= 0 ? nuovoSaldo : saldo; 
+    }
+
+    public void deposita(int importo) {
         if (importo > 0) {
             saldo += importo;
-            System.out.println("Deposito completato. Saldo attuale: " + saldo);
-        } else {
-            System.out.println("Errore: l'importo deve essere positivo.");
         }
     }
 
-    // Metodo per prelevare denaro
-    public void preleva(double importo) {
+    // Metodo per prelevare un importo
+    public void preleva(int importo) {
         if (importo > 0 && importo <= saldo) {
             saldo -= importo;
-            System.out.println("Prelievo completato. Saldo attuale: " + saldo);
-        } else {
-            System.out.println("Errore: prelievo non possibile.");
         }
     }
 
-    // Metodo main per simulare operazioni
     public static void main(String[] args) {
-        ContoBancario conto = new ContoBancario(1000); // Saldo iniziale 1000
+        // Creazione del conto bancario con saldo iniziale di 0 centesimi
+        ContoBancario conto = new ContoBancario(0);
 
-        conto.deposita(500);  // Aggiunge 500
-        conto.preleva(300);   // Toglie 300
-        conto.preleva(1500);  // Errore: fondi insufficienti
+        System.out.println("Saldo iniziale: " + (conto.getSaldo() / 100.0) + "€");
 
-        System.out.println("Saldo finale: " + conto.getSaldo());
+        conto.deposita(5000);  // Deposita 50€ (5000 centesimi)
+        conto.deposita(10000); // Deposita 100€ (10000 centesimi)
+        conto.preleva(3000);   // Preleva 30€ (3000 centesimi)
+
+
+        System.out.println("Saldo finale: " + (conto.getSaldo() / 100.0) + "€");
     }
 }
